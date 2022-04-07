@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getxmanager/models/card_model.dart';
 
+import '../main.dart';
 import '../pages/add_card_page.dart';
 import '../services/http_server.dart';
 
@@ -49,7 +51,7 @@ class HomeController extends GetxController {
   }
 
   editFilterPage(CardModel card) async {
-    await Get.to(()=> AddCardPage(), arguments: card)?.then((value) {
+    await Get.to(() => AddCardPage(), arguments: card)?.then((value) {
       Get.back();
       if (value != null) {
         Get.snackbar(
@@ -58,4 +60,11 @@ class HomeController extends GetxController {
       }
     });
   }
+
+  changeLanguage(var value1, var value2) {
+    var locale = Locale(value1, value2);
+    Get.updateLocale(locale);
+  }
+
+
 }

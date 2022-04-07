@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TranslatorGetX extends Translations {
@@ -74,9 +74,3 @@ class TranslatorGetX extends Translations {
       };
 }
 
-class TranslatorController extends GetxController {
-  changeLanguage(var value1, var value2) {
-    var locale = Locale(value1, value2);
-    Get.updateLocale(locale);
-  }
-}

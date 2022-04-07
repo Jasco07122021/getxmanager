@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getxmanager/models/card_model.dart';
-import 'package:logger/logger.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../services/http_server.dart';
@@ -67,9 +66,7 @@ class AddCardController extends GetxController {
   }
 
   Future<bool> editCard() async {
-    Logger().i("edit");
     check();
-    Logger().i("edit2");
     String? value = await HttpServer.PUT(
       HttpServer.API_PUT + cardOld!.id,
       HttpServer.paramsCard(
@@ -80,7 +77,6 @@ class AddCardController extends GetxController {
         expYear: entryYearController.value.text,
       ),
     );
-    Logger().i(value);
     if (value != null) {
       return true;
     } else {
